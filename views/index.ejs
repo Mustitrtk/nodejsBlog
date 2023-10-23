@@ -1,0 +1,14 @@
+<div class="row d-flex justify-content-center my-3">
+    <% data.forEach(data => { %>
+        <div class="col-sm-4 d-flex justify-content-between my-3">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title"><%= data.title %></h5>
+                  <p class="card-text"><%= data.body.slice(0, 50) + (data.body.length > 50 ? '...' : '') %></p>
+                  <span><%= data.createdAt.toDateString() %></span>
+                  <a href="/post/<%= data.id %>" class="card-link">Card link</a>
+                </div>
+              </div>
+        </div>
+    <% }) %>
+</div>

@@ -1,0 +1,23 @@
+<div class="row d-flex justify-content-center my-3">
+    <div class="col-sm-4 d-flex justify-content-between my-5">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Edit-Post</h5>
+                <form method="POST" action="/edit/post-action/<%= data.id %>?_method=PUT">
+
+                    <div class="mb-3 form-control">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control" name="title" value="<%= data.title %>">
+                    </div>
+
+                    <div class="mb-3 form-control">
+                        <label for="body" class="form-label">Body</label>
+                        <textarea name="body" id="body" cols="30" rows="5"><%= data.body %></textarea>
+                    </div>
+
+                    <button type="submit" value="edit" class="btn btn-primary">Edit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

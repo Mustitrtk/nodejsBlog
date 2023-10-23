@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-sm-6 d-flex justify-content-center">
+        <h3>Posts</h3>
+    </div>
+    <div class="col-sm-6 d-flex justify-content-center">
+        <a href="/create/post">+ Add</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12 d-flex justify-content-center">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Body</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% data.forEach((data, i)=> { %>
+                    <tr>
+                        <th><%= i+1 %></th>
+                        <th><%= data.title %></th>
+                        <th><%= data.body.slice(0, 50) + (data.body.length > 50 ? '...' : '') %></th>
+                        <th>
+                            <a href="/edit/post/<%= data.id %>" class="btn btn-info">Edit</a>
+                            <form action="/delete-post/<%= data.id %>?_method=DELETE" method="POST">
+                                <input type="submit" value="Delete" class="btn btn-danger">
+                            </form>
+                        </th>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</div>
